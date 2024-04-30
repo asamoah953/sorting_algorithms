@@ -8,7 +8,7 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	int p, m, min_j, temp, n = (int)size;
+	int p, m, min_m, temp, n = (int)size;
 
 	if (!array || size < 2)
 		return;
@@ -17,22 +17,22 @@ void selection_sort(int *array, size_t size)
 	for (p = 0; p < n - 1; p++)
 	{
 		/* scan from that position to the end, */
-		min_j = i;
+		min_m = p;
 		for (m = p + 1; m < n; m++)
 		{
 			/* determine the minimum value in that range */
-			if (array[j] < array[min_j])
+			if (array[m] < array[min_m])
 			{
-				min_j = m;
+				min_m = m;
 			}
 		}
 		/* if lower than the value at start of range, */
 		/* then swap them */
-		if (min_j != p)
+		if (min_m != p)
 		{
 			temp = array[p];
-			array[p] = array[min_j];
-			array[min_j] = temp;
+			array[p] = array[min_m];
+			array[min_m] = temp;
 			print_array(array, size);
 		}
 	}
